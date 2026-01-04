@@ -34,12 +34,27 @@ public class $02_SecondLargest {
         System.out.println("Largest number is "+largest);
         System.out.println(" smallest  number is "+smallest);
     }
-    public static void optimal(){
+    public static void optimal(int arr[]){
+        int n=arr.length;
+        int largest= Integer.MIN_VALUE;
+        int secondLargest= Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            if(arr[i]>largest){
+                secondLargest=largest;
+                largest=arr[i];
+            } else if (arr[i]>secondLargest || arr[i]!=largest) {
+                secondLargest=arr[i];
+
+            }
+        }
+        System.out.println("Second largest number is "+secondLargest);
+
 
     }
     static void main(String[] args) {
     int arr[]= {1,2,4,7,7,5};
-//    bruteForce(arr);
+//      bruteForce(arr);
+//        better(arr);
         optimal(arr);
     }
 }
